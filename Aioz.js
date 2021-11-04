@@ -16,7 +16,9 @@ describe('Build Download :', ()  => {
       await browser.saveScreenshot(ScreenShotPath+"2.png");
       await $("(.//*[@class='vjs-marker '])[2]").click();
       await browser.pause(3000)
+      await browser.saveScreenshot(ScreenShotPath+"extra1.png");
       await $("(.//*[@class='vjs-marker '])[3]").waitForDisplayed({ timeout: 80000 });
+      await browser.saveScreenshot(ScreenShotPath+"extra2.png");
       await browser.pause(3000)
       await browser.saveScreenshot(ScreenShotPath+"3.png");
       await $("(.//*[@class='vjs-marker '])[3]").click();
