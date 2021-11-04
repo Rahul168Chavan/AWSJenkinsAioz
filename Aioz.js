@@ -1,4 +1,4 @@
-let { CustomURL,CustomTime,Email,Password} = process.env;
+let { CustomURL,Email,Password} = process.env;
 describe('Build Download :', ()  => {
     it('Login into the Aioz', async () => {
       await browser.url(CustomURL);
@@ -7,6 +7,18 @@ describe('Build Download :', ()  => {
       await $("//input[@id='email']").setValue(Email);
       await $("//input[@id='password']").setValue(Password);
       await $("//button[contains(text(),'Continue')]").click();
-      await browser.pause(CustomTime);
+      await browser.pause(3000);
+      await $("(.//*[@class='vjs-marker '])[1]").click();
+      await browser.pause(3000)
+      await $("(.//*[@class='vjs-marker '])[2]").waitForDisplayed({ timeout: 50000 });
+      await browser.pause(3000)
+      await $("(.//*[@class='vjs-marker '])[2]").click();
+      await browser.pause(3000)
+      await $("(.//*[@class='vjs-marker '])[3]").waitForDisplayed({ timeout: 50000 });
+      await browser.pause(3000)
+      await $("(.//*[@class='vjs-marker '])[3]").click();
+      await browser.pause(3000)
+      await $("(.//*[@class='vjs-marker '])[1]").waitForDisplayed({ timeout: 50000 });
+      await browser.pause(3000)
     });
   });
